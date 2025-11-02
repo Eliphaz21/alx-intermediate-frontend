@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Navigation Bar</title>
+<!-- Assuming output.css is in the src directory -->
+<link href="./src/output.css" rel="stylesheet"> 
+<style>
+        /* Custom CSS to handle the responsiveness for mobile screens (< 768px) */
+        @media (max-width: 768px) {
+            nav {
+                /* Overrides Tailwind's default flex-row to stack items vertically */
+                flex-direction: column;
+                /* Aligns stacked items to the start (left) */
+                align-items: flex-start;
+            }
+            /* Styling for stacked links on mobile */
+            nav a {
+                width: 100%; /* Make links full-width for easier tapping */
+                text-align: center; /* Center the text within the link */
+                margin-bottom: 0.5rem; /* Add vertical spacing between stacked items */
+            }
+        }
+    </style>
+</head>
+<body class="p-4">
+    <header class="mb-4">
+        <h1 class="text-3xl font-bold">Flexbox Navigation Bar</h1>
+    </header>
+
+    <!-- Navigation Container Classes:
+         - flex: Enables Flexbox layout
+         - space-x-5: Adds horizontal space between children (desktop view)
+         - justify-center: Centers the items horizontally
+         - bg-gray-300: Background color
+         - text-white: Set text color (though we adjust link color below for contrast)
+         - p-4: Padding around the nav bar
+         - rounded-lg: Added for visual appeal
+    -->
+    <nav class="flex space-x-5 justify-center bg-gray-300 text-white p-4 rounded-lg shadow-md"> 
+        
+        <!-- Link Classes:
+             - px-2, p-2: Padding
+             - text-xl: Text size
+             - hover:bg-gray-500: Background change on hover
+             - rounded-lg: Rounded corners
+             - text-gray-800: Adjusted default text color for contrast on gray-300 background
+             - hover:text-white: Ensures text is white on hover
+        -->
+        <a href="#" class="px-2 text-xl hover:bg-gray-500 p-2 rounded-lg text-gray-800 hover:text-white transition duration-150">Home</a> 
+        <a href="#" class="px-2 text-xl hover:bg-gray-500 p-2 rounded-lg text-gray-800 hover:text-white transition duration-150">About</a> 
+        <a href="#" class="px-2 text-xl hover:bg-gray-500 p-2 rounded-lg text-gray-800 hover:text-white transition duration-150">Services</a> 
+        <a href="#" class="px-2 text-xl hover:bg-gray-500 p-2 rounded-lg text-gray-800 hover:text-white transition duration-150">Contact</a> 
+    </nav>
+
+    <p class="mt-8 p-4 text-center text-gray-600">
+        Resize the window to see the navigation links stack vertically on mobile screens.
+    </p>
+
+</body>
+</html>
