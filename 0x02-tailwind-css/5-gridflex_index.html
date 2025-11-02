@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid and Flexbox Layout</title>
+    <!-- Load Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* This media query ensures the grid reverts to 1 column on screens <= 768px.
+           Tailwind's 'grid-cols-1' default already handles this, but the explicit
+           style block is kept as requested.
+        */
+        @media (max-width: 768px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+            /* Add mobile stacking for the flex children inside the section */
+            section {
+                flex-direction: column;
+            }
+            section div {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 bg-gray-50">
+    <header class="bg-blue-500 text-white p-4 rounded-t-lg shadow-lg">
+        <h1 class="text-3xl font-bold">Grid and Flexbox Layout</h1>
+    </header>
+
+    <!-- Main Container: Uses CSS Grid -->
+    <main class="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4 min-h-screen">
+        
+        <!-- Section: Spans 2 columns on large screens, uses Flexbox internally (flex) -->
+        <section class="lg:col-span-2 flex space-x-4">
+            
+            <!-- Flexbox Item 1: Takes 1/2 width -->
+            <div class="w-1/2 p-4 bg-red-200 rounded-lg shadow border border-red-300">
+                <h2 class="text-xl font-semibold mb-1 text-red-800">Flexbox Item 1</h2>
+                <p>This box and its neighbor use Flexbox and are set to `w-1/2` to divide the section equally.</p>
+            </div>
+            
+            <!-- Flexbox Item 2: Takes 1/2 width -->
+            <div class="w-1/2 p-4 bg-red-400 rounded-lg shadow border border-red-500 text-white">
+                <h2 class="text-xl font-semibold mb-1">Flexbox Item 2</h2>
+                <p>On mobile, the custom CSS ensures these two flex items stack vertically.</p>
+            </div>
+            
+        </section>
+        
+        <!-- Aside (Sidebar): Naturally occupies the remaining 1 grid column -->
+        <aside class="bg-green-200 p-4 rounded-lg shadow-md">
+             <h2 class="text-xl font-semibold mb-1 text-green-800">Sidebar</h2>
+             <p class="text-green-700">This content is positioned by the outer Grid layout, taking up one column.</p>
+        </aside>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white p-4 mt-4 rounded-b-lg shadow-lg">
+        <p>&copy; 2024 John Doe's Blog - Combined Layout Demo</p>
+    </footer>
+</body>
+</html>
