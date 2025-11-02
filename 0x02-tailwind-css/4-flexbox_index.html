@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Flexbox Layout</title>
+    <!-- 
+        The custom style block enforces stacking on mobile (< 768px) 
+        by overriding the default flex-direction.
+    -->
+    <style>
+      @media (max-width: 768px) {
+          main {
+              flex-direction: column;
+          }
+      }
+    </style>
+</head>
+<body class="p-4 font-sans bg-gray-100 min-h-screen">
+    <header class="mb-6 border-b pb-4">
+        <h1 class="text-3xl text-red-700 font-bold">Responsive Flexbox Layout</h1>
+        <p class="text-sm text-gray-600">This layout uses Flexbox to show two columns on desktop, which stack vertically on mobile screens.</p>
+    </header>
+
+    <!-- 
+        Main Container:
+        - flex: Enables Flexbox
+        - space-x-4: Adds horizontal gap between the aside and section on desktop
+    -->
+    <main class="flex space-x-4">
+        
+        <!-- 
+            Aside (Sidebar):
+            - w-full: Occupies full width on mobile (default)
+            - md:w-1/3: Occupies 1/3 width on medium screens (768px+) and above (desktop view)
+            - bg-gray-300, p-4: Required styling
+        -->
+        <aside class="w-full md:w-1/3 bg-gray-300 p-4 rounded-lg shadow-md transition duration-300">
+            <h2 class="text-xl font-semibold mb-2 text-gray-700">Sidebar</h2>
+            <p class="text-gray-600">Navigation links or supplementary content goes here.</p>
+        </aside>
+        
+        <!-- 
+            Section (Content):
+            - w-full: Occupies full width on mobile (default)
+            - md:w-2/3: Occupies 2/3 width on medium screens (768px+) and above (desktop view)
+            - bg-gray-500, p-4: Required styling (Note: gradient of 500 means the shade 500)
+            - text-white: Added for contrast on the dark background
+        -->
+        <section class="w-full md:w-2/3 bg-gray-500 p-4 rounded-lg shadow-lg text-white transition duration-300">
+            <h2 class="text-xl font-semibold mb-2">Content Section</h2>
+            <p>This is the main content area. It takes up the remaining two-thirds of the screen width on larger devices.</p>
+            <p class="mt-2">When you resize the window to less than 768px, the `main` container's `flex-direction` changes to `column`, causing the sidebar and content to stack vertically, with each taking up the full width.</p>
+        </section>
+        
+    </main>
+
+    <!-- Tailwind CDN Script (must be placed at the end of the body for correct parsing) -->
+    <script src="https://cdn.tailwindcss.com"></script>  
+</body>
+</html>
