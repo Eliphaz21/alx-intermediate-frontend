@@ -1,0 +1,13 @@
+Steps to install SASS on Windows:
+
+1. Installed Node.js:
+
+   - Downloaded Node.js installer from official website
+   - Installed Node.js and npm
+   - Verified installation with `node -v` and `npm -v`
+
+2. Installed SASS:
+   - Ran `npm install sass -v 3.7.4`
+   - Verified SASS installation with `npx sass --version`
+
+Installation complete.
